@@ -10,7 +10,7 @@ import com.template.ie.movie.model.User;
 /**
  * feign - 远程api本地调用
  */
-@FeignClient(name = "user/ant")
+@FeignClient(name = "user/ant", fallback = FeignClientFallback.class)
 public interface UserFeignClient {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
