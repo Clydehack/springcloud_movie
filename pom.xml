@@ -41,6 +41,12 @@
 			<artifactId>spring-cloud-starter-eureka</artifactId>
 		</dependency>
 		
+		<!-- 客户端侧负载均衡 - 消费者
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-ribbon</artifactId>
+		</dependency> -->
+		
 		<!-- web开发依赖 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
