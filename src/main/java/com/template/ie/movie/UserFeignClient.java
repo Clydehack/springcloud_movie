@@ -1,0 +1,18 @@
+package com.template.ie.movie;
+
+import org.springframework.cloud.netflix.feign.FeignClient;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.template.ie.movie.model.User;
+
+/**
+ * feign - 远程api本地调用
+ */
+@FeignClient(name = "user/ant")
+public interface UserFeignClient {
+
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	public User findById(@PathVariable("id") Long id);
+}
