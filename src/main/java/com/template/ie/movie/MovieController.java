@@ -28,16 +28,17 @@ public class MovieController {
 	 */
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public User queryUserById(@PathVariable Long id) {
-		return this.restTemplate.getForObject("http://localhost:8080/" + id, User.class);
+		logger.info("begin" + "end");
+		return this.restTemplate.getForObject("http://user/ant/" + id, User.class);
 	}
 	
 	/**
 	 * 客户端负载均衡 - 调用测试
 	 */
 	@RequestMapping(value = "/log-instance", method = RequestMethod.GET)
-	public void logUserInstance(@PathVariable Long id) {
+	public void logUserInstance() {
 		// 
 		ServiceInstance serviceInstance = this.loadBalancedClient.choose("user");
-		logger.info("{}:{}:{}", serviceInstance.getServiceId(), serviceInstance.getHost(), serviceInstance.getPort());
+		logger.info("begin" + "{}:{}:{}", serviceInstance.getServiceId(), serviceInstance.getHost(), serviceInstance.getPort() + "end");
 	}
 }
